@@ -41,8 +41,12 @@
         text-align: center;
         color: var(--color1);
 
-        @media (width <= 320px) {
+        @media (width <= 320px){
             font-size: 1em;
+        }
+        @media (height <= 550px){
+            font-size: 1em;
+            padding: 3px;
         }
 
     }
@@ -104,6 +108,9 @@
     }
     @media (min-width:1201px){
         width: 800px;
+    }
+    @media (height <= 550px){
+        font-size: 14px;
     }
 }
 

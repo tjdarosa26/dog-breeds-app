@@ -34,7 +34,7 @@
         padding-top: 0px;
     }
 
-    @media (orientation:landscape) {
+    @media (height <= 600px){
         height: fit-content;
     }
 }
