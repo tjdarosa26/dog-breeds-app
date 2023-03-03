@@ -1,0 +1,236 @@
+:root{
+
+    // ________________________ IMAGE SIZE ________________________
+
+    --image-max-width: 600px;
+    --image-max-height: 400px;
+
+    // -------------- BY WIDTH --------------
+    @media (width <= 375px) {
+        --image-max-width: 280px;
+        --image-max-height: 150px;
+    }
+    @media (450px >= width >= 376px){
+        --image-max-width: 375px;
+        --image-max-height: 200px;
+    }
+    @media (450px >= width >= 376px) and (height <= 625px){
+        --image-max-width: 280px;
+        --image-max-height: 150px;
+    }
+    @media (600px >= width >= 451px){
+        --image-max-width: 450px;
+        --image-max-height: 275px;
+    }
+    @media (600px >= width >= 451px) and (height <= 625px){
+        --image-max-width: 280px;
+        --image-max-height: 150px;
+    }
+    // -------------- BY HEIGHT --------------
+    @media (height <= 625px) and (not (width <= 600px)){
+        --image-max-width: 280px;
+        --image-max-height: 150px;
+    }
+    @media (750px >= height >= 626px) and (not (width <= 600px)){
+        --image-max-width: 375px;
+        --image-max-height: 200px;
+    }
+    @media (900px >= height >= 751px) and (not (width <= 600px)){
+        --image-max-width: 450px;
+        --image-max-height: 275px;
+    }
+
+
+    // ________________________ CARD SIZE ________________________
+    // (for loading and error states))
+    
+    --card-width: 600px;
+    --card-height: 564px;
+
+    // -------------- BY WIDTH --------------
+    @media (max-width:375px){
+        --card-height: 314px;
+    }
+    @media (450px >= width >= 376px){
+        --card-height: 364px;
+    }
+    @media (600px >= width >= 451px){
+        --card-height: 439px;
+    }
+    @media (900px >= width >= 751px){
+
+    }
+    @media (1200px >= width >= 901px){
+        --card-width: 700px;
+    }
+    @media (1200px >= width >= 901px) and (not (height >= 900px)) {
+        --card-height: 700px;
+        --card-width: 700px;
+    }
+    @media (width >= 1201px){
+        --card-width: 800px;
+    }
+    @media (width >= 1201px) and (not (height >= 900px)){
+        --card-height: 800px;
+        --card-width: 800px;
+    }
+
+    // -------------- BY HEIGHT --------------
+    @media (height <= 625px){
+        --card-height: 314px;
+    }
+    @media (750px >= height >= 626px) and (not (width <= 600px)){
+        --card-height: 364px;
+    }
+    @media (900px >= height >= 751px) and (not (width <= 600px)){
+        --card-height: 439px;
+    }
+    
+}   
+        
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--content-font);
+}
+
+/* --------- BREED INFO ---------*/
+div#breedInfoContainer{
+    height: 154px;
+    padding: 5px 10px;
+    line-height: 1.5rem;
+
+    #breedName{
+        font-weight: bold;
+        font-style: italic;
+        padding: 5px 0px;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    mark{
+        background-color: transparent;
+        font-weight: bold;
+    }
+
+    .info{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 24px;
+    }
+}
+    
+/* --------- BREED IMAGE ---------*/
+div#imgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    width: 100%;
+    height: var(--image-max-height);
+    background-color: black;
+    border-radius: 0px 0px 10px 10px;
+}
+
+div#img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--card-width);
+    max-width: var(--card-height);
+    height: var(--image-max-height);
+    border-radius: 10px;
+    overflow: hidden;
+    
+    img{
+        height: 100%;
+        max-width: var(--card-width);
+        border-radius: 0px 0px 10px 10px;
+    }
+}
+
+/* --------- STATES ---------*/
+#breed{
+    /* successful request */
+    width: 600px;
+    max-width: 95%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 5px 5px 5px var(--shadow-color);
+    clip-path: inset(-10px -10px -10px -10px);
+
+    @media (max-width: 1200px) and (min-width:901px){
+        width: 700px;
+    }
+    @media (min-width:1201px){
+        width: 800px;
+    }
+}
+
+#loading{
+    height: var(--card-height);
+    width: var(--card-width);
+    max-width: 95%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px var(--shadow-color);
+    clip-path: inset(-10px -10px -10px -10px);
+}
+
+#error{
+    height: var(--card-height);
+    width: var(--card-width);
+    max-width: 95%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 5px var(--shadow-color);
+    clip-path: inset(-10px -10px -10px -10px);
+}
+
+/* --------- LOADING SPINNER ---------*/
+
+.spinnerBorder{
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: linear-gradient(
+        45deg, 
+        var(--color4),
+        var(--color3),
+        transparent);
+    border-radius: 50%;
+
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+.spinnerInside{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spin{
+    0% {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
