@@ -12,50 +12,48 @@ export default function BreedsList ({setBreedId}) {
 
     return(
         <>
-            <div id={styles.howToUseContainer}>
-                <p>Select a dog breed to see the info!</p>
+            <div id={styles.howToUse}>
+                <p>Select a dog breed below!</p>
             </div>
 
             {dogBreeds.isLoading && 
-            <div className={styles.loading}>
-                <div className={styles.spinnerBorder}>
-                    <div className={styles.spinnerInside}/>
+            <div className={styles}>
+                <div className={styles}>
+                    <div className={styles}/>
                 </div>
             </div>}
 
             {dogBreeds.isError && 
-            <div className={styles.error}>
+            <div className={styles}>
                 Oops, somthing went wrong...
             </div>}
             
             {dogBreeds.isSuccess && 
 
-                <ul id={styles.breedsList}>
-                
-                    {dogBreeds.data.data.map((dogBreed) => (
-                
+                <div id={styles.listContainer}>
+                    <ul id={styles.list}>
                     
-                    <li
-                    key={dogBreed.id}
-                    id={dogBreed.id}
-                    className={styles.listItem}
-                    onClick={clickOnBreed}>
-            
-            
-                        <p 
-                        className={styles.listItem}
-                        id={dogBreed.id}>
-                            
-                            {dogBreed.name}
-                        
-                        </p>
-            
-            
-                    </li>
+                        {dogBreeds.data.data.map((dogBreed) => (
                     
-                
-                    ))}
-                </ul>
+                    
+                        <li
+                        key={dogBreed.id}
+                        id={dogBreed.id}
+                        className={styles}
+                        onClick={clickOnBreed}>
+                            <p
+                            className={styles}
+                            id={dogBreed.id}>
+                    
+                                {dogBreed.name}
+                    
+                            </p>
+                        </li>
+                    
+                    
+                        ))}
+                    </ul>
+                </div>
             }
         </>
     )

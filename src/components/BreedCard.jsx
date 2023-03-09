@@ -12,7 +12,6 @@ export default function BreedCard ({breedId}) {
         var {
             name, 
             origin, 
-            temperament, 
             weight, 
             height, 
             life_span
@@ -24,70 +23,61 @@ export default function BreedCard ({breedId}) {
     return(
         <>
             {dogBreedData.isLoading && <div>
-                <div id={styles.loading}>
-                        <div className={styles.spinnerBorder}>
-                            <div className={styles.spinnerInside}/>
+                <div id={styles}>
+                        <div className={styles}>
+                            <div className={styles}/>
                         </div>
                 </div>
             </div>}
 
             {dogBreedData.isError && <div>
-                <div id={styles.error}>
+                <div id={styles}>
                         <p>Oops, something went wrong...</p>
                 </div>
             </div>}
 
             {dogBreedData.isSuccess && 
-            <div id={styles.breed}>
-                <div id={styles.breedInfoContainer}>
+            <div id={styles.card}>
+                <div id={styles.info}>
                     
+
                     {/* ------------- NAME ------------- */}
-                    <p id={styles.breedName}>
+                    <p id={styles.name}>
                         {name}
                     </p>
 
+
                     {/* ------------- ORIGIN ------------- */}
          
-                    <p className={styles.info}>
-                        <mark>Origin:</mark> {origin ? origin : "N/A"}
-                    </p>
-             
-
-                    {/* ------------- TEMPERAMENT ------------- */}
-               
-                    <p className={styles.info}>
-                        <mark>Temperament:</mark> {temperament}
-                    </p>
-                   
-
-                    {/* ------------- WEIGHT ------------- */}
-                 
-                    <p className={styles.info}>
-                        <mark>Weight:</mark> {weight.metric} kg ({weight.imperial} lb)
-                    </p>
-                
-
-                    {/* ------------- HEIGHT ------------- */}
-                 
-                    <p className={styles.info}>
-                        <mark>Height:</mark> {height.metric} cm ({height.imperial} in)
-                    </p>
-                  
-
-                    {/* ------------- LIFE SPAN ------------- */}
-                
-                    <p className={styles.info}>
-                        <mark>Life span:</mark> {life_span}
-                    </p>
+                    <div id={styles.info}>
+                        <p className={styles}>
+                            <mark>Origin:</mark> {origin ? origin : "N/A"}
+                        </p>
+                        {/* ------------- WEIGHT ------------- */}
+                        <p className={styles}>
+                            <mark>Weight:</mark> {weight.metric} kg ({weight.imperial} lb)
+                        </p>
+                        {/* ------------- HEIGHT ------------- */}
+                        <p className={styles}>
+                            <mark>Height:</mark> {height.metric} cm ({height.imperial} in)
+                        </p>
+                        {/* ------------- LIFE SPAN ------------- */}
+                        <p className={styles}>
+                            <mark>Life span:</mark> {life_span}
+                        </p>
+                    </div>
                  
 
                 </div>
 
                 {/* ------------- IMAGE ------------- */}
-                <div id={styles.imgContainer}>
-                    <div id={styles.img}>
-                        <img src={breedImg.data.url} alt="Dog" id={styles.dogBreedImg}/>
+                <div id={styles.imgBackground}>
+                    <div id={styles.imgContainer}>
+                        <img src={breedImg.data.url} alt="Dog" id={styles.img}/>
                     </div>
+                </div>
+                <div id={styles.moreInfo}>
+                   Click on the picture above for more info! 
                 </div>
             </div>}
         </>

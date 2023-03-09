@@ -10,13 +10,14 @@ export default function Dashboard () {
 
     return(
         <>
-            <div id={styles.dashboard}>
-                
+            <div id={styles.cardContainer}>
                 <BreedCard breedId={breedId}/>
-                
-                <BreedsList setBreedId={setBreedId} />
-                
             </div>
+                
+            <div id={styles.listContainer}>
+                <BreedsList setBreedId={setBreedId} />
+            </div>
+                
             
         </>
     )

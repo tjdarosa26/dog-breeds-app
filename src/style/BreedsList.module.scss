@@ -1,116 +1,35 @@
-:root{
-    --breed-list-height:calc(100vh - 796px);
-
-    // -------------- WIDTH --------------
-    @media (max-width:750px) and (min-width:601px), (max-height:750px) {
-        --breed-list-height: calc(100vh - 736px)
-    }
-    @media (max-width:600px) and (min-width:451px), (max-height:900px) and (min-height:751px) {
-        --breed-list-height: calc(100vh - 611px)
-    }
-    @media (max-width:450px) and (min-width:375px){
-        --breed-list-height: calc(100vh - 536px)
-    }
-    @media (max-width:375px) {
-        --breed-list-height: calc(100vh - 486px)
-    }
+#howToUse{
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    padding: 5px 0px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px 10px 0 0;
 }
 
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: var(--content-font);
-}
-
-/* --------- HOW TO USE ---------*/
-#howToUseContainer{
-    width: 600px;
-    max-width: 95%;
-    margin: auto;
-    margin-top: 30px;
-    border-radius: 10px 10px 0px 0px;
-    background-color: rgb(235, 235, 235);
-    box-shadow: 5px 5px 5px var(--shadow-color);
-    clip-path: inset(-0px -10px -10px -0px);
-    
-    p{
-        border-radius: 10px 10px 0px 10px;
-        font-size: 1.1em;
-        font-weight: 600;
-        padding: 10px 0px;
-        text-align: center;
-        color: var(--color1);
-
-        @media (width <= 320px){
-            font-size: 1em;
-        }
-        @media (height <= 550px){
-            font-size: 1em;
-            padding: 3px;
-        }
-
-    }
-
-    @media (max-width: 1200px) and (min-width:901px){
-        width: 700px;
-    }
-    @media (min-width:1201px){
-        width: 800px;
-    }
-    @media (height <= 600px){
-        margin-top: 15px;
-    }
-
-}
-
-/* --------- LIST OF BREEDS ---------*/
-#breedsList{
-    width: 600px;
-    max-width: 95%;
-    height: var(--breed-list-height);
-    min-height: 100px;
-    margin: auto;
+#listContainer{
     overflow-y: scroll;
-    border-radius: 0px 0px 10px 10px;
-    background-color: rgb(245, 245, 245);
-    
-    list-style-type: decimal-leading-zero;
-    list-style-position: inside;
-    white-space: nowrap;
     overflow-x: hidden;
-  
-
-    box-shadow: 5px 5px 5px var(--shadow-color);
-    clip-path: inset(0px -10px -10px -10px);
-
-    li{
-        padding: 1.5px 0px 1.5px 5px;
-        
-        ::marker{
-            display: inline;
-        }
+    width: 100%;
+    border-radius: 0 0 0 10px;
+    text-indent: 5px;
+    
+    #list{
+        list-style-position: inside;
+        list-style-type: decimal-leading-zero;
+        overflow: hidden;
 
         p{
             display: inline;
+            overflow: hidden;
+            
         }
-    
-    }
-    
-    
-    li:hover{
-        background-color: var(--color1);
-        color: #fff;
-        cursor: pointer;
-    }
 
-    @media (max-width: 1200px) and (min-width:901px){
-        width: 700px;
-    }
-    @media (min-width:1201px){
-        width: 800px;
-    }
-    @media (height <= 550px){
-        font-size: 14px;
+        li:hover{
+            color: white;
+            background-color: var(--color1);
+            cursor: default;
+        }
     }
 }
 
@@ -119,7 +38,7 @@
 ::-webkit-scrollbar{
     width: 10px;
     background-color: rgb(247, 247, 247);
-    border-radius: 0px 0px 10px 10px;   
+    border-radius: 0 0 5px 0;   
     }
 
 ::-webkit-scrollbar-thumb{
@@ -135,91 +54,4 @@
 /* MOZILA */
 #breedsList{
     scrollbar-width: thin;
-}
-
-
-/* --------- LOADING STATE ---------*/
-.loading{
-    width: 600px;
-    max-width: 95%;
-    height: var(--breed-list-height);
-    min-height: 100px;
-    margin: auto;
-    padding-top: 3px;
-    background-color: #fff;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 5px 5px 5px var(--shadow-color);
-    clip-path: inset(0px -10px -10px -10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media (max-width: 1200px) and (min-width:901px){
-        width: 700px;
-    }
-    @media (min-width:1201px){
-        width: 800px;
-    }
-}
-
-
-/* --------- ERROR STATE ---------*/
-.error{
-    width: 600px;
-    max-width: 95%;
-    height: var(--breed-list-height);
-    min-height: 100px;
-    margin: auto;
-    padding-top: 3px;
-    background-color: #fff;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 2px 2px 10px var(--shadow-color);
-    clip-path: inset(0px -10px -10px -10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media (max-width: 1200px) and (min-width:901px){
-        width: 700px;
-    }
-    @media (min-width:1201px){
-        width: 800px;
-    }
-}
-
-
-/* --------- LOADING SPINNER ---------*/
-.spinnerBorder{
-    width: 75px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-image: linear-gradient(
-        45deg, 
-        var(--color4),
-        var(--color3),
-        transparent);
-    border-radius: 50%;
-
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-}
-
-.spinnerInside{
-    width: 60px;
-    height: 60px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-@keyframes spin {
-    0% {-webkit-transform: rotate(0deg);}
-    100% {-webkit-transform: rotate(360deg);}
-}
-
-@-webkit-keyframes spin{
-    0% {-webkit-transform: rotate(0deg);}
-    100% {-webkit-transform: rotate(360deg);}
 }

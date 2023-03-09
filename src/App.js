@@ -7,14 +7,19 @@ function App() {
 
   return (
   <>
-    <div id={styles.background}>
-      <QueryClientProvider client={queryClient}>
-      <div id={styles.titleContainer}>
-        <h1>Dog Breeds App</h1>
+    <QueryClientProvider client={queryClient}>
+      <div id={styles.background}>
+        <header id={styles.header}>
+          <h1><a href="https://dog-breeds-app.pages.dev/">Dog Breeds App</a></h1>
+        </header>
+        <div id={styles.dash}>
+          <Dashboard />
+        </div>
+        <footer id={styles.footer}>
+          <p>By <a target='_blank' rel="noreferrer" href="https://github.com/tjdarosa26">Tiago José da Rosa</a> with <a rel="noreferrer" target='_blank' href="https://thedogapi.com/">The Dog API</a></p>
+        </footer>
       </div>
-        <Dashboard/>
-      </QueryClientProvider>
-    </div>
+    </QueryClientProvider>
   </>
   )
 }
