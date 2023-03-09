@@ -77,7 +77,7 @@ export default function BreedCard ({breedId}) {
                     </div>
                 </div>
                 <div id={styles.moreInfo}>
-                   Click on the picture above for more info! 
+                   Click on the picture above for more info! (coming soon!)
                 </div>
             </div>}
         </>
